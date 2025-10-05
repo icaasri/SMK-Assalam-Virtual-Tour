@@ -122,8 +122,32 @@ main {
 
 .section { margin-bottom: 40px; }
 .section h2 { text-align: center; font-size: 2em; margin-bottom: 20px; color: #34495e; }
-.majors { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-.major-item { background: #f9f9f9; padding: 20px; border-radius: 10px; text-align: center; }
+.majors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.major-item {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    flex-basis: 350px;
+    flex-grow: 0;
+}
+
+.major-item:hover {
+    transform: translateY(-5px);
+}
+
+.major-item h3 {
+    margin-top: 0;
+    text-align: left;
+}
+
 .about-school p, .major-item p {
     text-align: justify; /* Membuat paragraf rata kanan-kiri */
 }
