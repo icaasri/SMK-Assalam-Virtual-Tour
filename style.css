@@ -79,60 +79,77 @@ main {
     border-bottom: 2px solid #3498db;
 }
 
-/* --- Konten Halaman (Umum) --- */
-.page-header {
-    background: linear-gradient(135deg, #4a90e2, #50e3c2);
-    color: white;
-    padding: 50px 0;
-    text-align: center;
-    border-radius: 0 0 20px 20px;
-}
-
-.page-header h1 {
-    margin: 0;
-    font-size: 3em;
-}
-
-.content-card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    margin-top: -30px;
-}
-
-/* --- Halaman Beranda (Spesifik) --- */
+/* --- Hero Section --- */
 .hero {
     text-align: center;
     padding: 80px 20px;
     border-radius: 15px;
     color: white;
     margin-bottom: 40px;
-    position: relative; /* Diperlukan untuk overlay */
+    position: relative;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/slide1.jpg') no-repeat center center/cover;
 }
 
-.hero h1, .hero p {
-    position: relative; /* Agar teks berada di atas overlay */
-    z-index: 2;
-}
-
-.hero h1 { font-size: 3.2em; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); }
+.hero h1 { font-size: 3.2em; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); margin: 0; }
 .hero p { font-size: 1.3em; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
 
-.section { margin-bottom: 40px; }
-.section h2 { text-align: center; font-size: 2em; margin-bottom: 20px; color: #34495e; }
-.majors { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-.major-item { background: #f9f9f9; padding: 20px; border-radius: 10px; text-align: center; }
-.about-school p, .major-item p {
-    text-align: justify; /* Membuat paragraf rata kanan-kiri */
+/* --- Section Umum --- */
+.section { margin-bottom: 60px; }
+.section h2 { 
+    text-align: center; 
+    font-size: 2.2em; 
+    margin-bottom: 30px; 
+    color: #2c3e50; 
+    font-weight: 700;
 }
 
-.cta-section {
+.about-school p {
     text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: #555;
 }
 
-/* --- Slideshow Beranda --- */
+/* --- Kartu Jurusan Unggulan (SESUAI GAMBAR 2) --- */
+.majors {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.major-item {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.major-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.major-item h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.major-item p {
+    color: #666;
+    line-height: 1.7;
+    font-size: 0.95rem;
+    text-align: justify; /* Teks rapi rata kanan-kiri */
+    margin: 0;
+}
+
+/* --- Slideshow & Tombol --- */
 .slideshow-container {
     max-width: 100%;
     position: relative;
@@ -145,198 +162,63 @@ main {
 .mySlides {
     display: none;
     width: 100%;
-    height: 400px;
+    height: 450px;
     object-fit: cover;
-    animation: fadeEffect 1.5s;
 }
 
-@keyframes fadeEffect {
-    from {opacity: 0.4}
-    to {opacity: 1}
-}
-
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-}
-
-.dot-container {
-    text-align: center;
-    padding: 15px;
-    background-color: white;
-    margin-top: -8px;
-}
-
-.dot {
-    cursor: pointer;
-    height: 12px;
-    width: 12px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
+.cta-button {
     display: inline-block;
-    transition: background-color 0.6s ease;
-}
-
-.active-dot, .dot:hover {
-    background-color: #717171;
-}
-
-/* --- Halaman Info Pengembang --- */
-.developers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    justify-content: center;
+    padding: 15px 35px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background 0.3s;
     margin-top: 20px;
 }
 
-.developer-card {
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    padding: 30px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.cta-button:hover {
+    background-color: #2980b9;
 }
-
-.developer-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
-}
-
-.developer-card img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border: 5px solid #3498db;
-    box-shadow: 0 0 0 5px rgba(52, 152, 219, 0.3);
-}
-
-.developer-card h3 {
-    margin: 10px 0;
-    font-size: 1.8em;
-    color: #2c3e50;
-}
-
-.developer-card p {
-    font-size: 1.1em;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.developer-card .role {
-    font-weight: 600;
-    color: #7f8c8d;
-    font-size: 0.9em;
-    margin-bottom: 10px;
-}
-
-.developer-card .contact-links a {
-    margin: 0 10px;
-    font-size: 1.4em;
-    color: #3498db;
-    transition: color 0.3s ease;
-}
-
-.developer-card .contact-links a:hover {
-    color: #2980b9;
-}
-
 
 /* --- Footer --- */
 .footer {
     background-color: #2c3e50;
     color: #ecf0f1;
-    padding: 40px 0;
+    padding: 60px 0 40px;
     margin-top: auto;
 }
 
 .footer-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    gap: 40px;
     width: 90%;
     max-width: 1100px;
     margin: 0 auto;
 }
 
-.footer-about, .footer-contact, .footer-social {
-    padding: 10px;
-}
-
 .footer h3 {
     color: #50e3c2;
-    margin-top: 0;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #34495e;
-    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.4em;
 }
 
-.footer p, .footer a {
-    color: #bdc3c7;
-    line-height: 1.7;
-}
+.footer p { color: #bdc3c7; font-size: 0.95em; }
 
 .footer-social a {
-    margin-right: 15px;
-    font-size: 1.5em;
+    color: white;
+    font-size: 1.8em;
+    margin-right: 20px;
     transition: color 0.3s;
 }
 
-.footer-social a:hover {
-    color: #50e3c2;
-}
+.footer-social a:hover { color: #50e3c2; }
 
-/* --- Responsif --- */
+/* --- Responsif Mobile --- */
 @media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .nav-links {
-        gap: 15px;
-    }
-    .hero {
-        padding: 40px 15px;
-    }
-    .hero h1 { font-size: 2.5em; }
-    .hero p { font-size: 1em; }
-    .slideshow-container, .mySlides {
-        height: 250px;
-    }
-    .page-header h1 {
-        font-size: 2.5em;
-    }
-    .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .footer h3 {
-        border-bottom: none;
-        padding-bottom: 0;
-    }
+    .nav-container { flex-direction: column; gap: 15px; }
+    .hero h1 { font-size: 2.2em; }
+    .mySlides { height: 250px; }
+    .footer-container { text-align: center; }
 }
