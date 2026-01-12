@@ -103,15 +103,34 @@ main {
     font-weight: 700;
 }
 
-.about-school p {
+/* --- Bagian Virtual Tour (CTA) Agar ke Tengah --- */
+.cta-section {
     text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.8;
-    color: #555;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
 }
 
-/* --- Kartu Jurusan Unggulan (SESUAI GAMBAR 2) --- */
+.cta-button {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.cta-button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* --- Kartu Jurusan Unggulan (Grid Rapi) --- */
 .majors {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -123,7 +142,7 @@ main {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid #eee;
@@ -131,25 +150,26 @@ main {
 
 .major-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .major-item h3 {
     color: #2c3e50;
     margin-bottom: 15px;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 700;
+    line-height: 1.4;
 }
 
 .major-item p {
     color: #666;
     line-height: 1.7;
     font-size: 0.95rem;
-    text-align: justify; /* Teks rapi rata kanan-kiri */
+    text-align: justify;
     margin: 0;
 }
 
-/* --- Slideshow & Tombol --- */
+/* --- Slideshow Beranda --- */
 .slideshow-container {
     max-width: 100%;
     position: relative;
@@ -166,20 +186,44 @@ main {
     object-fit: cover;
 }
 
-.cta-button {
-    display: inline-block;
-    padding: 15px 35px;
-    background-color: #3498db;
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
     color: white;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: background 0.3s;
-    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
 }
 
-.cta-button:hover {
-    background-color: #2980b9;
+.next { right: 0; border-radius: 3px 0 0 3px; }
+.prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
+
+.dot-container {
+    text-align: center;
+    padding: 15px;
+    background-color: white;
+    margin-top: -8px;
 }
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active-dot { background-color: #3498db; }
 
 /* --- Footer --- */
 .footer {
@@ -201,16 +245,19 @@ main {
 .footer h3 {
     color: #50e3c2;
     margin-bottom: 20px;
-    font-size: 1.4em;
+    font-size: 1.3em;
+    border-bottom: 2px solid #3e5871;
+    padding-bottom: 10px;
+    display: inline-block;
 }
 
-.footer p { color: #bdc3c7; font-size: 0.95em; }
+.footer p { color: #bdc3c7; font-size: 0.95em; line-height: 1.8; }
 
 .footer-social a {
     color: white;
     font-size: 1.8em;
     margin-right: 20px;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 .footer-social a:hover { color: #50e3c2; }
@@ -218,7 +265,10 @@ main {
 /* --- Responsif Mobile --- */
 @media (max-width: 768px) {
     .nav-container { flex-direction: column; gap: 15px; }
+    .nav-links { gap: 15px; }
+    .hero { padding: 50px 15px; }
     .hero h1 { font-size: 2.2em; }
     .mySlides { height: 250px; }
     .footer-container { text-align: center; }
+    .footer h3 { border-bottom: none; }
 }
